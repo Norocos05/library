@@ -11,7 +11,7 @@ function addManga() {
 
     localStorage.setItem('mangaList', JSON.stringify(mangaList));
 
-    fetchUsers();
+    fetchMangaList();
 
     alert('You added a manga to the list.');
     }
