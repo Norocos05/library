@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <title>Manga Library</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <header>LIBRARY</header>
+      </div>
+      <div class="content">
+        <table>
+          <thead>
+            <tr class="table-header">
+              <th>Title</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="manga-list-container"></tbody>
+        </table>
+        <div class="addBtn">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <span id="addText" class="addText">Add Manga</span>
+        </div>
+
+        <div class="modal" id="modalForAdd">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2>Add Manga</h2>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <label for="title">Title:</label>
+                <input type="text" id="title" />
+                <label for="status">Status:</label>
+                <input type="text" id="status" />
+                <label for="description">Description:</label>
+                <input type="text" id="description" />
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" id="modalBtn" onclick="addManga()">
+                Add Manga
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" id="modalForEdit">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Edit Manga</h2>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <label for="editTitle">Title:</label>
+                        <input type="text" id="editTitle" />
+        
+                        <label for="editStatus">Status:</label>
+                        <input type="text" id="editStatus" />
+        
+                        <label for="editDescription">Description:</label>
+                        <input type="text" id="editDescription" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="modalBtn" onclick="updateManga()">
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="modal.library.js"></script>
+  <script src="create.library.js"></script>
+  <script src="read.library.js"></script>
+  <script src="update.library.js"></script>
+</html>
