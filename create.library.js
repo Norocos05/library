@@ -17,7 +17,8 @@ function addManga() {
     }
 }
 
-/* window.onload = function() {
+/* update js
+    window.onload = function() {
     // Retrieve the user index from the URL parameters
     const params = new URLSearchParams(window.location.search);
     const index = params.get("index");
@@ -52,4 +53,12 @@ function addManga() {
         }
     };
 };
+
+delete js
+function deleteUser(index) {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    users.splice(index, 1);
+    localStorage.setItem('users', JSON.stringify(users));
+    fetchUsers();
+}
 */
