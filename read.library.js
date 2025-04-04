@@ -1,28 +1,46 @@
-const mangaList = JSON.parse(localStorage.getItem('mangaList')) || [];
-const listContainer = document.getElementById('manga-list-container');
-listContainer.innerHTML = '';
+function fetchMangaList() {
+    const mangaList = JSON.parse(localStorage.getItem('mangaList')) || [];
+    const listContainer = document.getElementById('manga-list-container');
+    listContainer.innerHTML = '';
 
-// Loop through the manga list to create rows in the table
-mangaList.forEach((manga, index) => {
-    const row = document.createElement('tr');
-    row.classList.add('table-content');
-    row.innerHTML = `
-        <td>${manga.title}</td>
-        <td>${manga.status}</td>
-        <td>${manga.description}</td>
-        <td class="dataBtn">
-            <i class="fa fa-pencil-square-o" aria-hidden="true" data-index="${index}"></i>
-            <i class="fa fa-trash-o" aria-hidden="true" onclick="deleteManga(${index})"></i>
-        </td>
-    `;
-    listContainer.appendChild(row);
+    mangaList.forEach((manga, index) => {
+        const row = document.createElement('tr');
+        row.classList.add('table-content');
 
-    // Select the edit icon within the current row
-    const editIcon = row.querySelector('.fa-pencil-square-o');
+        const titleCell = document.createElement('td');
+        titleCell.textContent = manga.title;
 
-    // Add an event listener to open the modal with the correct index
-    editIcon.addEventListener('click', (e) => {
-        const index = e.target.getAttribute('data-index');
-        openEditModal(index);  // Pass the correct index to the openEditModal function
+        const statusCell = document.createElement('td');
+        statusCell.textContent = manga.status;
+
+        const descriptionCell = document.createElement('td');
+        descriptionCell.textContent = manga.description;
+
+        const actionCell = document.createElement('td');
+        actionCell.classList.add('dataBtn');
+
+        const editButton = document.createElement('button');
+        editButton.textContent = "Edit";
+        editButton.onclick = function () {
+            openEditModal(index);
+        };
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = function () {
+            deleteManga(index);
+        };
+
+        actionCell.appendChild(editButton);
+        actionCell.appendChild(deleteButton);
+
+        row.appendChild(titleCell);
+        row.appendChild(statusCell);
+        row.appendChild(descriptionCell);
+        row.appendChild(actionCell);
+
+        listContainer.appendChild(row);
     });
-});
+}
+
+document.addEventListener("DOMContentLoaded", fetchMangaList);
