@@ -19,16 +19,18 @@ function fetchMangaList() {
         const actionCell = document.createElement('td');
         actionCell.classList.add('dataBtn');
 
+        // Create and style Edit button
         const editButton = document.createElement('button');
         editButton.textContent = "Edit";
         editButton.onclick = function () {
-            openEditModal(index);
+            openEditModal(index);  // Open edit modal with index
         };
 
+        // Create and style Delete button
         const deleteButton = document.createElement('button');
         deleteButton.textContent = "Delete";
         deleteButton.onclick = function () {
-            deleteManga(index);
+            deleteManga(index);  // Delete manga with index
         };
 
         actionCell.appendChild(editButton);
