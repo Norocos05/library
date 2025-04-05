@@ -1,0 +1,281 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and overall layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Main container to center everything */
+.main-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.header {
+    background-color: #2c3e50;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+header {
+    margin: 0;
+}
+
+/* Content section */
+.content {
+    padding: 20px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #34495e;
+    color: white;
+}
+
+.table-content:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-content td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Button container styling inside table */
+.dataBtn i {
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.dataBtn i:hover {
+    color: #2980b9;
+}
+
+/* Icon for adding new manga */
+.addBtn {
+    width: 50px;
+    height: 50px;
+    background-color: #2c3e50;
+    /* Different background color */
+    color: white;
+    border-radius: 50%;
+    /* Make it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Smooth transition */
+    overflow: hidden;
+    /* Ensures text doesn't spill out when expanding */
+}
+
+.addBtn .fa-plus {
+    font-size: 25px;
+}
+
+.addBtn .addText {
+    display: none;
+    /* Hide the text by default */
+    margin-left: 10px;
+    /* Space between icon and text */
+    font-size: 16px;
+}
+
+/* Hover effect to expand button and show text */
+.addBtn:hover {
+    width: 200px;
+    /* Expands horizontally */
+    border-radius: 30px;
+    /* Makes the shape oblong */
+}
+
+.addBtn:hover .fa-plus {
+    display: none;
+    /* Hide the icon on hover */
+}
+
+.addBtn:hover .addText {
+    display: inline-block;
+    /* Show the "Add Manga" text on hover */
+}
+
+.fa-plus {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+
+.fa-plus:hover {
+    color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-container {
+        width: 90%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .fa-plus {
+        font-size: 25px;
+    }
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: white; /* White background */
+    margin: 5% auto; /* Center modal vertically and horizontally */
+    padding: 20px;
+    width: 50%; /* Set width to 50% for a better modal look */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Modal header (like the table header) */
+.modal-header {
+    background-color: #2c3e50; /* Same background color as header */
+    color: white; /* White text color */
+    padding: 10px;
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Modal close button */
+.close {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+/* Hover effect for close button */
+.close:hover,
+.close:focus {
+    color: #2980b9; /* Blue on hover */
+}
+
+/* Modal body (form section) */
+.modal-body {
+    padding: 15px 0;
+    font-size: 16px;
+}
+
+/* Modal footer (same as button styling) */
+.modal-footer {
+    text-align: right;
+    padding: 10px 0;
+}
+
+/* Submit button inside modal */
+#modalBtn {
+    background-color: #2c3e50; /* Same background color as header and button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#modalBtn:hover {
+    background-color: #2980b9; /* Light blue on hover */
+}
+
+/* Modal input field styling */
+input[type="text"] {
+    width: 100%; /* Full width for inputs */
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state for input fields */
+input[type="text"]:focus {
+    border-color: #2980b9; /* Change border color to blue on focus */
+    outline: none; /* Remove default focus outline */
+    background-color: #fff; /* Change background color on focus */
+}
+
+/* Styling for labels */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 8px 0;
+    color: #333;
+}
+
+/* Modal form container styling */
+form {
+    padding: 15px 0;
+}
+
+/* Add some spacing between inputs and labels */
+input[type="text"] + label {
+    margin-top: 10px;
+}
+
+#button {
+    background: none;
+    border: none;
+}
